@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Programs</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            min-height: 100vh;
+            padding: 25px 0;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .card {
+            border-radius: 15px;
+            padding: 20px;
+            background: #f8f9fa;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+            transition: 0.3s ease;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #2575fc;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1b5bcc;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <center>
+        <h1 class="mb-4 fw-bold">Number Programs</h1>
+        <p class="mb-5">Check Different Properties & Conversions of Numbers</p>
+    </center>
+
+    <div class="row g-4 justify-content-center">
+
+        <!-- PRIME -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card text-dark">
+                <center><h3>Prime Number</h3></center>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="operation" value="prime">
+                    <label class="fw-bold">Enter Number</label>
+                    <input type="number" name="number" class="form-control mt-1" required><br>
+                    <input type="submit" value="Check Prime">
+                </form>
+                {% if prime_result %}
+                <div class="alert alert-info mt-3 mb-0">{{ prime_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- EVEN ODD -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card text-dark">
+                <center><h3>Even / Odd</h3></center>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="operation" value="even">
+                    <label class="fw-bold">Enter Number</label>
+                    <input type="number" name="number" class="form-control mt-1" required><br>
+                    <input type="submit" value="Check Even/Odd">
+                </form>
+                {% if even_result %}
+                <div class="alert alert-info mt-3 mb-0">{{ even_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- ARMSTRONG -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card text-dark">
+                <center><h3>Armstrong Number</h3></center>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="operation" value="armstrong">
+                    <label class="fw-bold">Enter Number</label>
+                    <input type="number" name="number" class="form-control mt-1" required><br>
+                    <input type="submit" value="Check Armstrong">
+                </form>
+                {% if armstrong_result %}
+                <div class="alert alert-info mt-3 mb-0">{{ armstrong_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- PERFECT -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card text-dark">
+                <center><h3>Perfect Number</h3></center>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="operation" value="perfect">
+                    <label class="fw-bold">Enter Number</label>
+                    <input type="number" name="number" class="form-control mt-1" required><br>
+                    <input type="submit" value="Check Perfect">
+                </form>
+                {% if perfect_result %}
+                <div class="alert alert-info mt-3 mb-0">{{ perfect_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- DISARIUM -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card text-dark">
+                <center><h3>Disarium Number</h3></center>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="operation" value="disarium">
+                    <label class="fw-bold">Enter Number</label>
+                    <input type="number" name="number" class="form-control mt-1" required><br>
+                    <input type="submit" value="Check Disarium">
+                </form>
+                {% if disarium_result %}
+                <div class="alert alert-info mt-3 mb-0">{{ disarium_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- NIVEN -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card text-dark">
+                <center><h3>Niven (Harshad)</h3></center>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="operation" value="niven">
+                    <label class="fw-bold">Enter Number</label>
+                    <input type="number" name="number" class="form-control mt-1" required><br>
+                    <input type="submit" value="Check Niven">
+                </form>
+                {% if niven_result %}
+                <div class="alert alert-info mt-3 mb-0">{{ niven_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- SPY -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card text-dark">
+                <center><h3>Spy Number</h3></center>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="operation" value="spy">
+                    <label class="fw-bold">Enter Number</label>
+                    <input type="number" name="number" class="form-control mt-1" required><br>
+                    <input type="submit" value="Check Spy">
+                </form>
+                {% if spy_result %}
+                <div class="alert alert-info mt-3 mb-0">{{ spy_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- PALINDROME -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card text-dark">
+                <center><h3>Palindrome Number</h3></center>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="operation" value="palindrome">
+                    <label class="fw-bold">Enter Number</label>
+                    <input type="number" name="number" class="form-control mt-1" required><br>
+                    <input type="submit" value="Check Palindrome">
+                </form>
+                {% if palindrome_result %}
+                <div class="alert alert-info mt-3 mb-0">{{ palindrome_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- EVIL / ODIOUS -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card text-dark">
+                <center><h3>Evil / Odious</h3></center>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="operation" value="evil_odious">
+                    <label class="fw-bold">Enter Number</label>
+                    <input type="number" name="number" class="form-control mt-1" required><br>
+                    <input type="submit" value="Check Evil/Odious">
+                </form>
+                {% if evil_odious_result %}
+                <div class="alert alert-info mt-3 mb-0">{{ evil_odious_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- STRONG -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card text-dark">
+                <center><h3>Strong Number</h3></center>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="operation" value="strong">
+                    <label class="fw-bold">Enter Number</label>
+                    <input type="number" name="number" class="form-control mt-1" required><br>
+                    <input type="submit" value="Check Strong">
+                </form>
+                {% if strong_result %}
+                <div class="alert alert-info mt-3 mb-0">{{ strong_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- PALPRIME -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card text-dark">
+                <center><h3>PalPrime</h3></center>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="operation" value="palprime">
+                    <label class="fw-bold">Enter Number</label>
+                    <input type="number" name="number" class="form-control mt-1" required><br>
+                    <input type="submit" value="Check PalPrime">
+                </form>
+                {% if palprime_result %}
+                <div class="alert alert-info mt-3 mb-0">{{ palprime_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- EMIRP -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card text-dark">
+                <center><h3>EMIRP Number</h3></center>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="operation" value="emirp">
+                    <label class="fw-bold">Enter Number</label>
+                    <input type="number" name="number" class="form-control mt-1" required><br>
+                    <input type="submit" value="Check EMIRP">
+                </form>
+                {% if emirp_result %}
+                <div class="alert alert-info mt-3 mb-0">{{ emirp_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- HAPPY -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card text-dark">
+                <center><h3>Happy Number</h3></center>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="operation" value="happy">
+                    <label class="fw-bold">Enter Number</label>
+                    <input type="number" name="number" class="form-control mt-1" required><br>
+                    <input type="submit" value="Check Happy">
+                </form>
+                {% if happy_result %}
+                <div class="alert alert-info mt-3 mb-0">{{ happy_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- FASCINATING NUMBER -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card text-dark">
+                <center><h3>Fascinating Number</h3></center>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="operation" value="fascinating">
+                    <label class="fw-bold">Enter Number</label>
+                    <input type="number" name="number" class="form-control mt-1" required><br>
+                    <input type="submit" value="Check Fascinating">
+                </form>
+                {% if fascinating_result %}
+                <div class="alert alert-info mt-3 mb-0">{{ fascinating_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- INT TO BINARY -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card text-dark">
+                <center><h3>Integer ➝ Binary</h3></center>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="operation" value="int_to_binary">
+                    <label class="fw-bold">Enter Integer</label>
+                    <input type="number" name="number" class="form-control mt-1" required><br>
+                    <input type="submit" value="Convert">
+                </form>
+                {% if int_to_binary_result %}
+                <div class="alert alert-info mt-3 mb-0">{{ int_to_binary_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- BINARY TO INT -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card text-dark">
+                <center><h3>Binary ➝ Integer</h3></center>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="operation" value="binary_to_int">
+                    <label class="fw-bold">Enter Binary</label>
+                    <input type="text" name="number" class="form-control mt-1" required><br>
+                    <input type="submit" value="Convert">
+                </form>
+                {% if binary_to_int_result %}
+                <div class="alert alert-info mt-3 mb-0">{{ binary_to_int_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
